@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="mt-3">List of Poeples</h3>
+    <h3 class="mt-3">List of Peoples</h3>
 
     <div class="row">
         <div class="col-md-5">
@@ -7,7 +7,7 @@
         <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search keyword" name="keyword" autocomplete="off" autofocus>
         <div class="input-group-append">
-            <button class="btn btn-primary" type="submit" name="submit">Button</button>
+            <input class="btn btn-primary" type="submit" name="submit">
         </div>
         </div>
         </form>
@@ -16,6 +16,7 @@
 
     <div class="row">
         <div class="col-md-10">
+            <h5>Result : <?= $total_rows; ?></h5>
             <table class="table">
                 <thead>
                 <tr>
@@ -26,6 +27,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <?php if(empty($peoples)): ?>
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger" role="alert">
+                                    data not found!
+
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                     <?php foreach ($peoples as $people) : ?>
                     <tr>
                         <th><?= ++$start; ?></th>
